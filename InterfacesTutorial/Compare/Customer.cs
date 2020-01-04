@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace InterfacesTutorial
+namespace InterfacesTutorial.Compare
 {
     public class Customer : IComparable<Customer>
     {
