@@ -15,6 +15,13 @@ namespace InterfacesTutorial
                 LastName = "Miller",
                 Salary = 4000
             };
+            Customer customer11 = new Customer()
+            {
+                Id = 101,
+                FirstName = "Mark",
+                LastName = "Abi",
+                Salary = 4000
+            };
 
             Customer customer2 = new Customer()
             {
@@ -36,9 +43,15 @@ namespace InterfacesTutorial
             listCutomers.Add(customer1);
             listCutomers.Add(customer2);
             listCutomers.Add(customer3);
+            listCutomers.Add(customer11);
 
+            Console.WriteLine("Before Sorting : ");
+            foreach (var item in listCutomers)
+            {
+                Console.WriteLine(item.FullName);
+            }
 
-
+            Console.WriteLine();
             Console.WriteLine("List by First name then last name with IComparable:");
             listCutomers.Sort();
             foreach(var item in listCutomers)
