@@ -24,5 +24,19 @@ namespace InterfacesTutorial.Compare
 
             return result;
         }
+         
+        public override string ToString()
+        {
+            return this.FullName;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj == null) return false;
+
+            if (!(obj is Customer)) return false;
+
+            return this.FullName == ((Customer)obj).FullName;
+        }
     }
 }

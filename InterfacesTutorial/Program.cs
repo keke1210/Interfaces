@@ -1,4 +1,5 @@
 ﻿using InterfacesTutorial.Compare;
+using InterfacesTutorial.Iterator;
 using System;
 using System.Collections.Generic;
 
@@ -8,6 +9,8 @@ namespace InterfacesTutorial
     {
         static void Main(string[] args)
         {
+           
+
             Customer customer1 = new Customer()
             {
                 Id = 101,
@@ -73,7 +76,6 @@ namespace InterfacesTutorial
             }
 
 
-
             // Delegate Version
             Console.WriteLine();
             Console.WriteLine("List by Last Name with delegate:");
@@ -82,6 +84,30 @@ namespace InterfacesTutorial
             foreach (var item in listCutomers)
             {
                 Console.WriteLine(item.LastName);
+            }
+
+
+            Console.WriteLine();
+            var getCustomerById = listCutomers.Find(x => x.Id == 102);
+            Console.WriteLine("Customer by id : "+ getCustomerById.FullName);
+
+
+
+            //Iterator pattern
+
+            /**
+             * The pattern is astonishingly useful when attempting to retrieve objects from collections that you'd 
+             * rather not expose to outside usage (because that's, like, the pattern's entire purpose). If you primarily
+             * work in the ASP.NET world (as I do) and you use LINQ, you are already using the Iterator pattern 
+             * extensively (e.g. collection.First()(Reset) or collection.Count()).
+            */
+            var infiniteEnumerable = new MyInfiniteEnumerable();
+            var enumerator = infiniteEnumerable.GetEnumerator();
+
+
+            while (enumerator.MoveNext())
+            {
+                Console.WriteLine(enumerator.Current);
             }
         }
     }
