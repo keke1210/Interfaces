@@ -28,7 +28,7 @@ namespace InterfacesTutorial
             {
                 Id = 103,
                 FirstName = "Ken",
-                LastName = "Kuy",
+                LastName = "Neny",
                 Salary = 5500
             };
 
@@ -59,6 +59,17 @@ namespace InterfacesTutorial
                 Console.WriteLine(item.Salary);
             }
 
+
+
+            // Delegate Version
+            Console.WriteLine();
+            Console.WriteLine("List by Last Name with delegate:");
+            listCutomers.Sort((x, y) => x.LastName.CompareTo(y.LastName));
+
+            foreach (var item in listCutomers)
+            {
+                Console.WriteLine(item.LastName);
+            }
         }
     }
 }
