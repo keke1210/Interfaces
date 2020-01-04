@@ -19,11 +19,6 @@ namespace InterfacesTutorial.Iterator
             mValues = values;
         }
 
-        public void Dispose()
-        {
-
-        }
-
         public bool MoveNext()
         {
             mIndex++;
@@ -34,6 +29,11 @@ namespace InterfacesTutorial.Iterator
         public void Reset()
         {
             mIndex = 0;
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }

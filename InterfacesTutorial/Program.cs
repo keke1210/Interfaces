@@ -1,4 +1,5 @@
 ﻿using InterfacesTutorial.Compare;
+using InterfacesTutorial.Equality;
 using InterfacesTutorial.Iterator;
 using System;
 using System.Collections.Generic;
@@ -98,7 +99,7 @@ namespace InterfacesTutorial
             /**
              * The pattern is astonishingly useful when attempting to retrieve objects from collections that you'd 
              * rather not expose to outside usage (because that's, like, the pattern's entire purpose). If you primarily
-             * work in the ASP.NET world (as I do) and you use LINQ, you are already using the Iterator pattern 
+             * work in the ASP.NET world and you use LINQ, you are already using the Iterator pattern 
              * extensively (e.g. collection.First()(Reset) or collection.Count()).
             */
             var infiniteEnumerable = new MyInfiniteEnumerable();
@@ -109,6 +110,23 @@ namespace InterfacesTutorial
             {
                 Console.WriteLine(enumerator.Current);
             }
+
+
+
+            // Equality
+            Student s1 = new Student()
+            {
+                Name = "Skerdi",
+                Age = 15
+            };
+            Student s2 = new Student()
+            {
+                Name = "Skerdi",
+                Age = 15
+            };
+
+            Console.WriteLine(s1.Equals(s2));
+
         }
     }
 }
