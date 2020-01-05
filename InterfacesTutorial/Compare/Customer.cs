@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InterfacesTutorial.Compare
 {
-    public class Customer : IComparable<Customer>
+    public class Customer : IComparable<Customer>, IEquatable<Customer>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -30,13 +30,12 @@ namespace InterfacesTutorial.Compare
             return this.FullName;
         }
 
-        public override bool Equals(object obj)
+
+        public bool Equals([AllowNull] Customer other)
         {
-            if(obj == null) return false;
+            if (other == null) return false;
 
-            if (!(obj is Customer)) return false;
-
-            return this.FullName == ((Customer)obj).FullName;
+            return this.FullName == other.FullName;
         }
     }
 }

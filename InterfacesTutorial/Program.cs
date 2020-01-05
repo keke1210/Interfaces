@@ -122,7 +122,7 @@ namespace InterfacesTutorial
             Student s2 = new Student()
             {
                 Name = "Skerdi",
-                Age = 15
+                Age = 22
             };
 
             Console.WriteLine(s1.Equals(s2));
