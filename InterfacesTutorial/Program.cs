@@ -1,6 +1,7 @@
 ﻿using InterfacesTutorial.Compare;
 using InterfacesTutorial.Equality;
 using InterfacesTutorial.Iterator;
+using InterfacesTutorial.Tutorial;
 using System;
 using System.Collections.Generic;
 
@@ -127,6 +128,47 @@ namespace InterfacesTutorial
 
             Console.WriteLine(s1.Equals(s2));
 
+
+
+
+            //Logger
+            var logger = GetLogger();
+            // log it
+            logger.OnLogMessage += (message, level) =>
+            {
+                Console.WriteLine("We listened a message about to be logged...");
+                Console.WriteLine($" '{message}' > {level}");
+            };
+
+
+            // log it
+            logger.LogMesage("Somethg verbose", LogLevel.Debug);
+            Console.WriteLine();
+
+            logger.LogMesage("Critical", LogLevel.Debug);
+
+        }
+
+        /// <summary>
+        /// Simulate getting an <see cref="ILogger"/> from DI 
+        /// </summary>
+        /// <returns></returns>
+        //static ILogger GetLogger()
+        //{
+        //    return new FileLogger(@"C:\Users\Keke\Desktop\SomeLog\test.txt");
+        //}
+
+
+        /// <summary>
+        /// Simulate getting an <see cref="ILogger"/> from DI
+        /// </summary>
+        /// <returns></returns>
+        static ILogger GetLogger()
+        {
+            return new ConsoleLogger
+            {
+                LogLevel = LogLevel.Debug
+            };
         }
     }
 }

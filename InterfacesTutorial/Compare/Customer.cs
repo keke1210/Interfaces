@@ -16,7 +16,7 @@ namespace InterfacesTutorial.Compare
         public string FullName => this.FirstName + " " + LastName;
 
         // Sorts elements by FirstName and then by LastName
-        public int CompareTo([AllowNull] Customer other)
+        public int CompareTo(Customer other)
         {
             int result =  this.FirstName.CompareTo(other.FirstName);
             if(result == 0)
@@ -31,7 +31,7 @@ namespace InterfacesTutorial.Compare
         }
 
 
-        public bool Equals([AllowNull] Customer other)
+        public bool Equals(Customer other)
         {
             if (other == null) return false;
 
